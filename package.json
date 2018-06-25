@@ -9,7 +9,7 @@
     "mon": "nodemon --watch src server.js",
     "build": "webpack --config ./webpack/webpack.dev.config.js",
     "build-prod": "webpack --config ./webpack/webpack.prod.config.js",
-    "all": "npm run build & npm start",
+    "all": "npm run build & npm run mon",
     "start": "node server.js"
   },
   "author": "",

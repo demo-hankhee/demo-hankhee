@@ -10,7 +10,7 @@ const Navigation = () => (
     <nav className="navbar">
         <div className="container-fluid">
             <div className="navbar-header">
-                <span style={{fontFamily:'georgia'}} className="navbar-brand" >Demo-hk</span>
+                <span style={{fontFamily:'georgia'}} className="navbar-brand" >Demo-hankhee</span>
             </div>
             <ul className="nav navbar-nav">
                 <li><NavLink to='/home'><span className="glyphicon glyphicon-home" /> Getting start</NavLink></li>

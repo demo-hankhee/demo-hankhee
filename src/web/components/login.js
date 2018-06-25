@@ -10,8 +10,8 @@ export class Login extends Component {
 
         this.state = {
             redirect: false,
-            name: '',
-            password: '',
+            name: 'user114',
+            password: 'pass114',
             hasValidToken: false
         }
 
@@ -48,7 +48,8 @@ export class Login extends Component {
             })
             .then(response => {
                 localStorage.setItem('token', response.data.token);
-                this.setState({ redirect: true });
+                // this.setState({ redirect: true });
+                this.setState({ hasValidToken: true });
             });
     }
 
@@ -66,9 +67,9 @@ export class Login extends Component {
     }
 
     render() {
-        if (this.state.redirect) {
-            return <Redirect to='/' />
-        }
+        // if (this.state.redirect) {
+        //     return <Redirect to='/home' />
+        // }
 
         let loginPart;
         if (!this.state.hasValidToken) {
