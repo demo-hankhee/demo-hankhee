@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Login} from '../components/login';
 
-export default class Home extends Component {
+export default class Intro extends Component {
 
     render() {
         return (

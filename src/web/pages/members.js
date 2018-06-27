@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactTable from 'react-table';
 import { Redirect } from 'react-router';
-import { AddButton, DeleteButton} from '../components/buttons'
+import { AddButton, DeleteButton } from '../components/buttons'
 import "react-table/react-table.css";
-let db = require('../database/mocking');
+const db = require('../database/db');
 
 export default class Members extends Component {
 
@@ -23,7 +23,7 @@ export default class Members extends Component {
         accessor: 'name',
         Header: 'Name',
         Cell: (cellProps) => {
-          return <a href='#' onClick={() => this.setState({edit:cellProps.original._id})} >{cellProps.original.name}</a>
+          return <a href='#' onClick={() => this.setState({ edit: cellProps.original._id })} >{cellProps.original.name}</a>
         }
       },
       { accessor: 'email', Header: 'Email' },
@@ -33,7 +33,7 @@ export default class Members extends Component {
 
     this.state = {
       members: [],
-      edit:'',
+      edit: '',
       createNew: false
     };
 
@@ -42,13 +42,13 @@ export default class Members extends Component {
     this.refresh = this.refresh.bind(this);
   }
 
-  componentWillMount(){
+  componentWillMount() {
     this.refresh();
   }
 
   refresh() {
-    db.getAccounts()
-    .then(members => this.setState({members}));
+    db.getMembers()
+      .then(members => this.setState({ members }));
   }
 
   createNew() {
@@ -56,14 +56,13 @@ export default class Members extends Component {
   }
 
   delete(id) {
-    //console.log(id);
-    db.deleteAccount(id);
+    db.deleteMember(id);
     this.refresh();
   }
 
   render() {
 
-    if(this.state.edit){
+    if (this.state.edit) {
       return (<Redirect to={'/member/' + this.state.edit} />);
     }
 
@@ -82,12 +81,5 @@ export default class Members extends Component {
         />
       </div>
     );
-  }
-}
-
-const styles = {
-  button: {
-    marginTop: 10,
-    marginBottom: 10
   }
 }

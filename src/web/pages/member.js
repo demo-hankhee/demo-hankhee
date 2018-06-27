@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import { TextInput } from '../components/inputs';
 import { SaveButton, CancelButton } from '../components/buttons';
-let db = require('../database/mocking');
+let db = require('../database/db');
 
 export default class Member extends Component {
 
@@ -21,10 +21,8 @@ export default class Member extends Component {
     }
 
     componentWillMount() {
-        //axios
-        console.log(this.id);
         if (this.isUpdate) {
-            db.getAccount(this.id)
+            db.getMember(this.id)
                 .then(member => {
                     this.setState({ member });
                 });
@@ -33,11 +31,11 @@ export default class Member extends Component {
 
     save() {
         if (this.isNew) {
-            db.addAccount(this.state.member)
+            db.addMember(this.state.member)
                 .then(() => this.setState({ backToMembers: true }));
         }
         else {
-            db.saveAccount(this.state.member)
+            db.saveMember(this.state.member)
                 .then(() => this.setState({ backToMembers: true }));
         }
     }
@@ -73,12 +71,5 @@ export default class Member extends Component {
                 />
             </div>
         );
-    }
-}
-
-const styles = {
-    button: {
-        marginTop: 10,
-        marginBottom: 10
     }
 }

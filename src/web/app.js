@@ -3,6 +3,8 @@ import { Route, NavLink, Switch } from 'react-router-dom';
 import Members from './pages/members';
 import Member from './pages/member';
 import Home from './pages/home';
+import Intro from './pages/intro';
+
 import menuCss from './css/menu.css';
 
 const Navigation = () => (
@@ -25,6 +27,7 @@ const Navigation = () => (
 
 const Main = () => (
     <Switch>
+        <Route exact path='/' component={Home}></Route>
         <Route exact path='/home' component={Home}></Route>
         <Route exact path='/members' component={Members}></Route>
         <Route exact path='/member' component={Member}></Route>

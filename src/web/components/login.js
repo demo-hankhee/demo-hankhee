@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { TextInput } from './inputs';
-import { Redirect } from 'react-router-dom';
 const axios = require('axios');
-const db = require('../database/mocking');
+const db = require('../database/db');
 
 export class Login extends Component {
     constructor(props) {

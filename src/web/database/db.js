@@ -19,7 +19,7 @@ module.exports.createDemo = () => {
     return deferred.promise;
 }
 
-module.exports.getAccounts = () => {
+module.exports.getMembers = () => {
     let deferred = q.defer();
     let headers = createHeader();
     axios({
@@ -34,7 +34,7 @@ module.exports.getAccounts = () => {
     return deferred.promise;
 }
 
-module.exports.getAccount = (_id) => {
+module.exports.getMember = (_id) => {
     let deferred = q.defer();
     let headers = createHeader();
     axios({
@@ -50,7 +50,7 @@ module.exports.getAccount = (_id) => {
     return deferred.promise;
 }
 
-module.exports.addAccount = (member) => {
+module.exports.addMember = (member) => {
     let deferred = q.defer();
     let headers = createHeader();
 
@@ -70,7 +70,7 @@ module.exports.addAccount = (member) => {
 
 }
 
-module.exports.saveAccount = (member) => {
+module.exports.saveMember = (member) => {
     let deferred = q.defer();
     let headers = createHeader();
 
@@ -90,7 +90,7 @@ module.exports.saveAccount = (member) => {
 
 }
 
-module.exports.deleteAccount = (_id) => {
+module.exports.deleteMember = (_id) => {
     let headers = createHeader();
     let deferred = q.defer();
 
