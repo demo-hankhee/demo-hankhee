@@ -51,10 +51,10 @@ export class Login extends Component {
             .then(response => {
                 localStorage.setItem('token', response.data.token);
                 this.setState({ hasValidToken: true });
-                toastr.success(`Login success welcome  ${this.state.name}`);
+                toastr.success(`welcome  ${this.state.name}`,`Login success `);
             })
             .catch(err => {
-                toastr.success(`Login fail.`);
+                toastr.error(`${err}`,"Login fail");
             });
     }
 
@@ -72,10 +72,6 @@ export class Login extends Component {
     }
 
     render() {
-        // if (this.state.redirect) {
-        //     return <Redirect to='/home' />
-        // }
-
         let loginPart;
         if (!this.state.hasValidToken) {
             loginPart = <div className="form-group">
