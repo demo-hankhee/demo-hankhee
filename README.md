@@ -39,7 +39,6 @@ Simple CRUD application on member build with `node.js`, `express.js`, `mongodb w
 - `react-table` for listing
 
 ## On the way / in progress
-- [x] Build mobile app with react-native and consume API provide mobile functionality
+- [x] react-native mobile app - consume same API to provide mobile functionality
 - [ ] E2E testing with cypress.io
 - [ ] Enhance with Redux
-
