@@ -3,16 +3,17 @@ import { Route, NavLink, Switch } from 'react-router-dom';
 import Members from './pages/members';
 import Member from './pages/member';
 import Home from './pages/home';
-import Intro from './pages/intro';
-
 import menuCss from './css/menu.css';
+
+import toastr from 'toastr';
+import toastrCss from './css/toastr.css';
 
 const Navigation = () => (
 
     <nav className="navbar">
         <div className="container-fluid">
             <div className="navbar-header">
-                <span style={{fontFamily:'georgia'}} className="navbar-brand" >Demo-hankhee</span>
+                <span style={{ fontFamily: 'georgia' }} className="navbar-brand" >Demo-hankhee</span>
             </div>
             <ul className="nav navbar-nav">
                 <li><NavLink to='/home'><span className="glyphicon glyphicon-home" /> Getting start</NavLink></li>
@@ -37,6 +38,11 @@ const Main = () => (
 );
 
 export default class App extends Component {
+
+    componentDidMount(){
+        toastr.info('Welcom to the demo');
+    }
+    
     render() {
         // localStorage.clear();
         return (

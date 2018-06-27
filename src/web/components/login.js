@@ -3,6 +3,9 @@ import { TextInput } from './inputs';
 const axios = require('axios');
 const db = require('../database/db');
 
+import toastr from 'toastr';
+import toastrCss from '../css/toastr.css';
+
 export class Login extends Component {
     constructor(props) {
         super(props);
@@ -47,8 +50,11 @@ export class Login extends Component {
             })
             .then(response => {
                 localStorage.setItem('token', response.data.token);
-                // this.setState({ redirect: true });
                 this.setState({ hasValidToken: true });
+                toastr.success(`Login success welcome  ${this.state.name}`);
+            })
+            .catch(err => {
+                toastr.success(`Login fail.`);
             });
     }
 
@@ -78,13 +84,14 @@ export class Login extends Component {
                 <TextInput id='password' caption='Password' value={this.state.password}
                     onChange={e => { this.setState({ password: e.target.value }) }} />
                 <button className='btn btn-default' onClick={() => this.login()}>
-                <span className="glyphicon glyphicon-log-in" /> Login</button>
+                    <span className="glyphicon glyphicon-log-in" /> Login
+                </button>
             </div>
         }
         else {
             loginPart = <div className="form-group">
                 <button className='btn btn-default' onClick={() => this.logout()}>
-                Logout <span className="glyphicon glyphicon-log-out" /></button>
+                    Logout <span className="glyphicon glyphicon-log-out" /></button>
             </div>
         }
 

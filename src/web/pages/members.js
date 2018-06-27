@@ -3,6 +3,9 @@ import ReactTable from 'react-table';
 import { Redirect } from 'react-router';
 import { AddButton, DeleteButton } from '../components/buttons'
 import "react-table/react-table.css";
+import toastr from 'toastr';
+import toastrCss from '../css/toastr.css';
+
 const db = require('../database/db');
 
 export default class Members extends Component {
@@ -47,6 +50,12 @@ export default class Members extends Component {
   }
 
   refresh() {
+
+    if(!localStorage.getItem('token')){
+      toastr.error('Please login for action.', 'Error')
+      return;
+    }
+
     db.getMembers()
       .then(members => this.setState({ members }));
   }
