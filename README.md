@@ -1,10 +1,14 @@
 # demo-hankhee
 
+## Links:
+- Demo: http://demo-hankhee.herokuapp.com/
+- Source code: https://github.com/demo-hankhee/demo-hankhee
+
 ## Introduction
 Simple CRUD application on member build with `node.js`, `express.js`, `mongodb with mongoose.js` and `react.js`. 
 
 ### Points of interest
-- application build with MVC like structure.
+- application build with MVC like pattern.
 - using `jsonWebToken` as authentication token.
 - `express.js` as server for both API and web server, frontend call `api` for CRUD
 
@@ -15,7 +19,7 @@ Simple CRUD application on member build with `node.js`, `express.js`, `mongodb w
     - controllers
     - models
   - routes
-  - web 
+  - web (view)
 ```
 
 ## How it works
@@ -27,14 +31,15 @@ Simple CRUD application on member build with `node.js`, `express.js`, `mongodb w
 - go to `Members`, fake data will be list, `react-table` used
 - `add`, `edit`(by clicking name) and `delete` are availabe
 
-## Technical
+## Addition technical information
 - `axios` for api call
 - `mongoose` for `mongodb` data manipulation
 - `simple-encryptor` for password encrytion
 - `q` for promise
 - `react-table` for listing
 
-Links:
-- Demo: http://demo-hankhee.herokuapp.com/
-- Source code: https://github.com/demo-hankhee/demo-hankhee
+## On the way / in progress
+- [x] Build mobile app with react-native and consume API provide mobile functionality
+- [ ] E2E testing with cypress.io
+- [ ] Enhance with Redux
 
