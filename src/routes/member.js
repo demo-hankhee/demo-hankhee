@@ -30,7 +30,7 @@ const member = (app) => {
             .then(success =>
                 res.send(success))
             .catch(error =>
-                res.send(`Error: ${error}`)
+                res.status(500).send(`Error: ${error}`)
             );
     });
 
@@ -41,7 +41,7 @@ const member = (app) => {
             .then(success =>
                 res.send(success))
             .catch(error =>
-                res.send(`Error: ${error}`)
+                res.status(500).send(`Error: ${error}`)
             );
     });
 
@@ -51,7 +51,7 @@ const member = (app) => {
             .then(success =>
                 res.send(success))
             .catch(error =>
-                res.send(`Error: ${error}`)
+                res.status(500).send(`Error: ${error}`)
             );
     });
 }

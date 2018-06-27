@@ -7,7 +7,7 @@ const user = (app) => {
             .then(token =>
                 res.send(token))
             .catch(error =>
-                res.send(`Error: ${error}`)
+                res.status(403).send(`Error: ${error}`)
             );
     });
 }

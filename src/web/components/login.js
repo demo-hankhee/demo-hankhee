@@ -43,6 +43,7 @@ export class Login extends Component {
     }
 
     login() {
+        toastr.options.timeOut = 1500;
         axios.post('/api/login',
             {
                 name: this.state.name,

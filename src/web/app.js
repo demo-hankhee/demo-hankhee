@@ -40,6 +40,7 @@ const Main = () => (
 export default class App extends Component {
 
     componentDidMount(){
+        toastr.options.timeOut = 1500;
         toastr.info('Welcom to the demo');
     }
     
