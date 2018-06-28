@@ -12,20 +12,23 @@ module.exports = {
 	module: {
 		rules: [{
 			test: /\.(js|jsx)$/,
-				exclude: /node_modules/,
-				loader: 'babel-loader'
-			},{
-				test: /\.(less|css)$/,
-				loaders: ["style-loader", "css-loader", "less-loader"]
-			}
+			exclude: /node_modules/,
+			loader: 'babel-loader'
+		}, {
+			test: /\.(less|css)$/,
+			loaders: ["style-loader", "css-loader", "less-loader"]
+		}, {
+			test: /\.txt$/,
+			use: 'raw-loader'
+		}
 		]
-    },
-    output: {
-        path: parentDir + '/src/web',
-        filename: 'bundle.js'
-    },
-    devServer: {
-        contentBase: parentDir,
-        historyApiFallback: true
+	},
+	output: {
+		path: parentDir + '/src/web',
+		filename: 'bundle.js'
+	},
+	devServer: {
+		contentBase: parentDir,
+		historyApiFallback: true
 	}
 }

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import { TextInput } from '../components/inputs';
 import { SaveButton, CancelButton } from '../components/buttons';
+import toastr from 'toastr';
+import toastrCss from '../css/toastr.css';
 let db = require('../database/db');
 
 export default class Member extends Component {
@@ -32,11 +34,17 @@ export default class Member extends Component {
     save() {
         if (this.isNew) {
             db.addMember(this.state.member)
-                .then(() => this.setState({ backToMembers: true }));
+                .then(() => {
+                    this.setState({ backToMembers: true });
+                    toastr.success(`New member created.`);
+                });
         }
         else {
             db.saveMember(this.state.member)
-                .then(() => this.setState({ backToMembers: true }));
+                .then(() => {
+                    this.setState({ backToMembers: true });
+                    toastr.success(`Member updated.`);
+                });
         }
     }
 
