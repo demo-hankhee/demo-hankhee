@@ -78,7 +78,7 @@ export class Login extends Component {
             loginPart = <div className="form-group">
                 <TextInput id='name' caption='Name' value={this.state.name}
                     onChange={e => { this.setState({ name: e.target.value }) }} />
-                <TextInput id='password' caption='Password' value={this.state.password}
+                <TextInput type='password' id='password' caption='Password' value={this.state.password}
                     onChange={e => { this.setState({ password: e.target.value }) }} />
                 <button className='btn btn-default' onClick={() => this.login()}>
                     <span className="glyphicon glyphicon-log-in" /> Login
