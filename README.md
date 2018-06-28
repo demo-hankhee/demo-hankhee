@@ -10,12 +10,12 @@ Simple CRUD application on member build with `node.js`, `express.js`, `mongodb w
 - Source code: https://github.com/demo-hankhee/demo-hankhee
 
 ## How it works
-- visit[Demo](https://demo-hankhee.herokuapp.com/)
+- visit [Demo](https://demo-hankhee.herokuapp.com/)
 - go to `Getting start`
 - `Create new demo` or `just login` with existing login name and password
 - `Create new demo` will create new `Company`, new `login` and default 10 members by `faker.js`
-- `Login` will get token via api
-- go to `Members`, fake data will be list, `react-table` used
+- `Login` will login and get token via api
+- go to `Members`, fake data will be listed, `react-table` used
 - `add`, `edit`(by clicking name) and `delete` are availabe
 
 ## Points of interest
