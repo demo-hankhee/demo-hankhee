@@ -3,6 +3,7 @@ const q = require('q');
 const User = require('./../models/user');
 const auth = require('../auth/auth');
 const crypt = require('../utils/crypt');
+const logging = require('../utils/logging');
 
 class UserController {
 
@@ -37,22 +38,26 @@ class UserController {
         User.findOne({ name })
             .then((user) => {
                 if (user) {
+                    logging.log("Login", "", "user found", 0);
                     let decrypted = crypt.decrptyPassword(user.password);
                     if (decrypted === password) {
                         let token = auth.sign({
                             name: user.name,
                             division: user.division
                         });
+                        logging.log("Login - token", "", token, 0);
                         deferred.resolve({
                             token,
                             division: user.division
                         });
                     }
                     else {
+                        logging.log("Login - err", "", "Invalid password", 0);
                         deferred.reject('Invalid password');
                     }
                 }
                 else {
+                    logging.log("Login - err", "", "User not found", 0);
                     deferred.reject(`User not found`);
                 }
             });

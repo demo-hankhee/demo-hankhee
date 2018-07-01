@@ -6,21 +6,16 @@ export default class Intro extends Component {
 
     constructor(props){
         super(props);
-        console.log('Readme', readMe);
         this.state = {
-            readme : ''
+            readme : readMe
         }
-    }
-
-    componentDidMount(){
-        this.setState({readme:readMe});
     }
 
     render() {
         return (
             <div >
             <iframe srcDoc={ this.state.readme} scrolling="no" 
-    style={{border:'none', position: 'relative', height: '1400px', width: '100%'}}> 
+                style={{border:'none', position: 'relative', height: '1400px', width: '100%'}}> 
             
             </iframe>
             </div>
