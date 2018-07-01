@@ -52,12 +52,10 @@ class UserController {
                         });
                     }
                     else {
-                        logging.log("Login - err", "", "Invalid password", 0);
                         deferred.reject('Invalid password');
                     }
                 }
                 else {
-                    logging.log("Login - err", "", "User not found", 0);
                     deferred.reject(`User not found`);
                 }
             });
