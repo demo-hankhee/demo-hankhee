@@ -10,7 +10,6 @@ class MemberController {
 
     demo(division) {
         let deferred = q.defer();
-        console.log('demo');
         const faker = require('faker');
 
         Member.findOne({}, 'code', { sort: { code: -1 } })
@@ -19,7 +18,7 @@ class MemberController {
                 if (data != null) {
                     next = data.code + 1;
                 }
-                for (let i = 0; i < 5; i++) {
+                for (let i = 0; i < 10; i++) {
                     let fake = faker.helpers.createCard();
                     let member = Object.assign(new Member(),
                         {

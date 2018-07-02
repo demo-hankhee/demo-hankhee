@@ -68,6 +68,7 @@ export class Login extends Component {
         this.logout();
         db.createDemo()
             .then(user => {
+                toastr.success(`New company`,`${user.division} created successfully.`);
                 this.setState({ name: user.name, password: user.password });
             })
     }
@@ -80,6 +81,7 @@ export class Login extends Component {
                     onChange={e => { this.setState({ name: e.target.value }) }} />
                 <TextInput type='password' id='password' caption='Password' value={this.state.password}
                     onChange={e => { this.setState({ password: e.target.value }) }} />
+                <p>Name: <span style={{color:'red'}}><i>userxxx</i></span>  Password: <span style={{color:'red'}}><i>passxxx</i></span> , where xxx is company number after create new demo</p>
                 <button className='btn btn-default' onClick={() => this.login()}>
                     <span className="glyphicon glyphicon-log-in" /> Login
                 </button>
