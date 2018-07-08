@@ -49,8 +49,8 @@ class MemberController {
 
                 let member = Object.assign(new Member(), newMember, { code, division });
                 member.save()
-                .then(member => deferred.resolve(member)
-            )
+                    .then(member => deferred.resolve(member)
+                    )
             });
 
         return deferred.promise;
@@ -84,14 +84,10 @@ class MemberController {
         let division = this.division;
         filter = Object.assign(filter, { division });
         Member.remove(filter)
-            .then(err => {
-                if (err) {
-                    deferred.reject(err);
-                }
-                else {
-                    deferred.resolve('Success');
-                }
-            });
+            .then(() => {
+                deferred.resolve('Success');
+            })
+            .catch(err => deferred.reject(err));
         return deferred.promise;
     }
 }
